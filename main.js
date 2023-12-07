@@ -101,8 +101,12 @@ function game() {
     }
     if (playerScore > computerScore) {
         console.log(`You win! You: ${playerScore} Computer: ${computerScore}`);
+        playerScore = 0;
+        computerScore = 0;
     }
     if (computerScore > playerScore) {
         console.log(`You lose! You: ${playerScore} Computer: ${computerScore}`);
+        playerScore = 0;
+        computerScore = 0;
     }
 }
