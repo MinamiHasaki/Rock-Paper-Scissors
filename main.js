@@ -25,3 +25,22 @@ function getComputerChoice() {
             break;
     }
 }
+
+function getPlayerChoice() {
+    let playerResponse = null;
+    playerResponse = prompt("Welcome to Rock Paper Scissors, enter your choice!").toLowerCase();
+    switch (playerResponse) {
+        case "rock":
+            return rock;
+            break;
+        case "paper":
+            return paper;
+            break;
+        case "scissors":
+            return scissors;
+            break;
+        default:
+            console.log("Try again! Please type \"rock\", \"paper\", or \"scissors\".");
+            playRound();
+    }
+}
