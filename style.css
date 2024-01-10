@@ -1,0 +1,41 @@
+img {
+    border-radius: 50%;
+}
+
+button {
+    background: url('https://placehold.co/100');
+    height: 100px;
+    width: 100px;
+}
+
+.vertical-container {
+    display: flex;
+    flex-direction: column;
+    just
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.heading {
+    align-self: center;
+}
+
+#game-board {
+    background: linear-gradient(
+        to right, 
+        red 0%, 
+        red 50%, 
+        blue 50%, 
+        blue 100%
+    );
+    padding: 25px;
+}
+
+#selection-board {
+    background: grey;
+}
+
