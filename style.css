@@ -20,7 +20,12 @@ button {
 }
 
 .heading {
+    background-color: black;
+    color: white;
+    font-weight: bolder;
     align-self: center;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 #game-board {
@@ -38,3 +43,10 @@ button {
     background: grey;
 }
 
+.selection-title {
+    text-align: center;
+}
+
+#selection-board input {
+    width: 100px;
+}
