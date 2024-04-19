@@ -27,6 +27,13 @@ button {
     border-radius: 5px;
 }
 
+.score-screen {
+    background-color: white;
+    font-size: large;
+    text-align: center;
+    font-weight: bolder;
+}
+
 #game-board {
     background: linear-gradient(
         to right, 
