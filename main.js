@@ -26,87 +26,90 @@ function getComputerChoice() {
     }
 }
 
-function getPlayerChoice() {
-    let playerResponse = null;
-    playerResponse = prompt("Welcome to Rock Paper Scissors, enter your choice!").toLowerCase();
-    switch (playerResponse) {
-        case "rock":
-            return rock;
-            break;
-        case "paper":
-            return paper;
-            break;
-        case "scissors":
-            return scissors;
-            break;
-        default:
-            console.log("Try again! Please type \"rock\", \"paper\", or \"scissors\".");
-            playRound();
+function addPlayerScore() {
+    if (playerScore >= 5) {
+        console.log(`You win! You: ${playerScore} Computer: ${computerScore}`);
+        playerScore = 0;
+        computerScore = 0
+    } else {
+        playerScore++;
+    };
+}
+
+function addComputerScore() {
+    if (playerScore >= 5) {
+        console.log(`You win! You: ${playerScore} Computer: ${computerScore}`);
+        playerScore = 0;
+        computerScore = 0;
+    } else {
+        computerScore++;
     }
 }
 
-function playRound() {
-    let playerChoice = getPlayerChoice();
+function playRound(playerChoice) {
     let computerChoice = getComputerChoice();
     if (playerChoice == rock) {
         switch (computerChoice) {
             case rock:
-                console.log("It's a tie, lets play again!");
-                playRound();
+                console.log("It's a tie, pick again!");
                 break;
             case paper:
                 console.log("You lose! I chose paper, and paper beats rock.");
-                computerScore++;
+                addComputerScore();
                 break;
             case scissors:
                 console.log("You win! I chose scissors, and rock beats scissors!");
-                playerScore++
+                addPlayerScore();
                 break;
         }
     } else if (playerChoice == paper) {
         switch (computerChoice) {
             case rock:
                 console.log("You win! I chose rock, and paper beats rock.");
-                playerScore++;
+                addPlayerScore();
                 break;
             case paper:
-                console.log("It's a tie, lets play again!");
-                playRound();
+                console.log("It's a tie, pick again!");
                 break;
             case scissors:
                 console.log("You lose! I chose scissors, and scissors beats paper.");
-                computerScore++;
+                addComputerScore();
                 break;
         }
     } else if (playerChoice == scissors) {
         switch (computerChoice) {
             case rock:
                 console.log("You lose! I chose rock, and rock beats scissors.");
-                computerScore++;
+                addComputerScore();
                 break;
             case paper:
                 console.log("You win! I chose paper, and scissors beats paper.");
-                playerScore++;
+                addPlayerScore();
             case scissors:
-                console.log("It's a tie, lets play again!");
-                playRound()
+                console.log("It's a tie, pick again!");
                 break;
         }
     }
 }
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound();
-    }
-    if (playerScore > computerScore) {
-        console.log(`You win! You: ${playerScore} Computer: ${computerScore}`);
-        playerScore = 0;
-        computerScore = 0;
-    }
-    if (computerScore > playerScore) {
-        console.log(`You lose! You: ${playerScore} Computer: ${computerScore}`);
-        playerScore = 0;
-        computerScore = 0;
-    }
-}
+const playerScoreDiv = document.querySelector("#player-score");
+
+const computerScoreDiv = document.querySelector("#computer-score");
+
+const rockButton = document.querySelector("#selection-rock");
+
+const paperButton = document.querySelector("#selection-paper");
+
+const scissorsButton = document.querySelector("#selection-scissors");
+
+rockButton.addEventListener("click", () => {
+    playRound(rock);
+});
+
+paperButton.addEventListener("click", () => {
+    playRound(paper);
+});
+
+scissorsButton.addEventListener("click", () => {
+    playRound(scissors);
+});
