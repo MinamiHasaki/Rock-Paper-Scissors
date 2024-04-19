@@ -44,6 +44,7 @@ function addComputerScore() {
         computerScore = 0;
     } else {
         computerScore++;
+        computerScoreDiv.textContent = `${computerScore}`;
     }
 }
 
