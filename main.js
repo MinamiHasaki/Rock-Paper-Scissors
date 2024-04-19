@@ -33,6 +33,7 @@ function addPlayerScore() {
         computerScore = 0
     } else {
         playerScore++;
+        playerScoreDiv.textContent = `${playerScore}`;
     };
 }
 
